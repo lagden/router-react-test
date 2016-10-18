@@ -1,0 +1,48 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "uglify": "uglifyjs public/bundle.js -o public/bundle.min.js --source-map public/bundle.min.js.map -p 5 -c -m",
+    "build": "browserify --no-dedupe src/app.js -o public/bundle.js && npm run uglify",
+    "dev": "NODE_ENV=development watchify src/app.js -o public/bundle.js -dv & nodemon index.js",
+    "start": "NODE_ENV=production npm run build && node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-transform-async-to-generator": "6.16.0",
+    "babel-register": "6.16.3",
+    "koa": "2.0.0-alpha.7",
+    "koa-compress": "2.0.0",
+    "koa-static": "3.0.0",
+    "pify": "2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "6.16.0",
+    "babelify": "7.3.0",
+    "browserify": "13.1.0",
+    "nodemon": "1.11.0",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
+    "react-router": "2.8.1",
+    "uglify-js": "2.7.3",
+    "watchify": "3.7.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
+    ]
+  }
+}
