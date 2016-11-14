@@ -1,8 +1,11 @@
-// modules/Home.js
 import React from 'react'
 
 export default React.createClass({
-  render() {
-    return (<div>Home</div>)
-  }
+	render() {
+		return (
+			<div>
+				<h2>Apenas um showwww</h2>
+			</div>
+		)
+	}
 })

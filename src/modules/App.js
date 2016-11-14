@@ -1,20 +1,23 @@
 import React from 'react'
 
-import Nav from './Nav'
-import Home from './Home'
+import Nav from './nav'
+import Home from './home'
 
 export default React.createClass({
-  render() {
-    return (
-      <div>
-        <h1>React Router Tutorial</h1>
-        <ul role="nav">
-          <li><Nav to="/" onlyActiveOnIndex={true}>Home</Nav></li>
-          <li><Nav to="/about">About</Nav></li>
-          <li><Nav to="/repos">Repos</Nav></li>
-        </ul>
-        {this.props.children || <Home/>}
-      </div>
-    )
-  }
+	propTypes: {
+		children: React.PropTypes.object.isRequired
+	},
+	render() {
+		return (
+			<div>
+				<h1>The App</h1>
+				<ul role="nav">
+					<li><Nav to="/" onlyActiveOnIndex>Home</Nav></li>
+					<li><Nav to="/about">About</Nav></li>
+					<li><Nav to="/repos">Repos</Nav></li>
+				</ul>
+				{this.props.children || <Home/>}
+			</div>
+		)
+	}
 })
